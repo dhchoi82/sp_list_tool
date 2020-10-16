@@ -3,7 +3,7 @@ function Species(genus,sp_epithet,intra_sp_arr=null,author='',etc=''){
     this.genus = genus.replaceAll(' ','').toLowerCase();
     this.genus = this.genus.charAt(0).toUpperCase() + this.genus.slice(1);
     this.sp_epithet = sp_epithet.replaceAll(' ','').toLowerCase();
-    this.scientific = this.genus + ' ' + this.sp_epithet; // 학명
+    this.scientific = '<i>' + this.genus + ' ' + this.sp_epithet + '</i>'; // 학명
 
 
     // 종 내 분류 설정
@@ -16,15 +16,18 @@ function Species(genus,sp_epithet,intra_sp_arr=null,author='',etc=''){
         switch(item[0]){
             case 'subsp':
                 this.subsp = item[1];
-                this.scientific = this.scientific + ' subsp. ' + this.subsp;
+                this.scientific = this.scientific + ' subsp. <i>' +
+                    this.subsp + '</i>';
                 break;
             case 'var':
                 this.var = item[1];
-                this.scientific = this.scientific + ' var. ' + this.var;
+                this.scientific = this.scientific + ' var. <i>' +
+                    this.var + '</i>';
                 break;
             case 'for':
                 this.for = item[1];
-                this.scientific = this.scientific + ' for. ' + this.for;
+                this.scientific = this.scientific + ' for. <i>' +
+                    this.for + '</i>';
                 break;
             default:
                 continue;

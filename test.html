@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>실험공간</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <p>
+            <input type="text" id="kor">
+            <br>
+            <span id="sci"></span>
+        </p>
+        
+        <script src="sp_ref.js"></script>
+        <script>
+            const kor = document.getElementById('kor');
+            const sci = document.getElementById('sci');
+            kor.onkeyup = function(){
+                try {
+                    sci.innerHTML = name_ref_obj[kor.value.trim()].scientific;
+                } catch(TypeError) {
+                    sci.innerHTML = '';
+                }
+            };
+        </script>
+    </body>
+</html>
